@@ -1,11 +1,11 @@
-const http = require('http')
+const express = require('express');
+const app = express();
 
-const server = http.createServer((req, res)=>{
-    //console.log(req.method)
-    console.log(req.url)
-    res.writeHead(200, {'content-type':'text/html'})
-    res.write('<h1>Home page</h1>')
-    res.end()
+app.get('/', (req, res)=>{
+    res.send('Home page')
+}
+)
+
+app.listen(5000, () => {
+    console.log('Server is listening on port 5000...')
 })
-
-server.listen(5000)
